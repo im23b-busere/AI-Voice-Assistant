@@ -1,9 +1,12 @@
-import openai
+from groq import Groq
 import speech_recognition as sr
 import sphinx
 import pyttsx3
+from key import key
 
-openai.api_key = 'sk-...pmsA'
+groq_client = Groq(
+    api_key = key
+)
 
 
 def speak(audio):
@@ -19,13 +22,29 @@ def listen():
 
         #code snippet inspired from https://github.com/Uberi/speech_recognition/blob/master/examples/microphone_recognition.py
         try:
-            speak(r.recognize_sphinx(audio))
+            print("You: " + r.recognize_sphinx(audio))
+            ask_AI(r.recognize_sphinx(audio))
         except sr.UnknownValueError:
             print("Could not understand audio")
         except sr.RequestError as e:
             print("Sphinx error; {0}".format(e))
 
 
+def ask_AI(input):
+    completion = groq_client.chat.completions.create(
+        model="llama3-8b-8192",
+        messages=[
+            {"role": "user", "content": input}
+        ],
+        temperature=1,
+        max_tokens=1024,
+        top_p=1,
+        stream=False,
+        stop=None,
+    )
+    ai_response = completion.choices[0].message.content
+    print(f"AI Response: {ai_response}")
+    speak(ai_response)
 
 
 if __name__ == "__main__":
