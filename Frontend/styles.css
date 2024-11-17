@@ -57,6 +57,8 @@ h1 {
     border-radius: 15px;
     box-shadow: gray 2px 2px;
     padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .recognized-text {
