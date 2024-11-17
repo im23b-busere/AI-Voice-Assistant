@@ -58,7 +58,14 @@ document.getElementById("voiceButton").addEventListener("click", () => {
 
             const data = await response.json();
 
-            aiResponseElement.textContent = `AI Response: ${data.response}`;
+            aiResponseElement.innerHTML = `<strong>AI Response:</strong> <span id="animatedResponse"></span>`;
+
+            // animate response using TypeIt library
+            new TypeIt("#animatedResponse", {
+                strings: [data.response],
+                speed: 70,
+                waitUntilVisible: true,
+            }).go();
             speak(data.response);
 
         } catch (err) {
