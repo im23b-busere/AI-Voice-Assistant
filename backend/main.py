@@ -47,7 +47,3 @@ def ask_AI(input):
     )
     ai_response = completion.choices[0].message.content
     return ai_response
-
-
-if __name__ == "__main__":
-    listen()

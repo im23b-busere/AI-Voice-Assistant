@@ -2,6 +2,22 @@ document.getElementById("voiceButton").addEventListener("click", () => {
     const recognizedTextElement = document.getElementById("recognizedText");
     const aiResponseElement = document.getElementById("aiResponse");
 
+    // loader from: https://uiverse.io/abrahamcalsin/breezy-panther-14
+    function showLoader() {
+        recognizedTextElement.innerHTML = `
+            <div class="loaderRectangle">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        `;
+    }
+
+    function hideLoader() {
+        recognizedTextElement.textContent = "";
+    }
 
     // https://dev.to/devsmitra/convert-text-to-speech-in-javascript-using-speech-synthesis-api-223g
     function speak(dataResponse) {
@@ -22,13 +38,14 @@ document.getElementById("voiceButton").addEventListener("click", () => {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    recognizedTextElement.textContent = "Listening...";
+    showLoader();
 
     recognition.start();
 
     recognition.onresult = async (event) => {
         // Get input from the result
         const userInput = event.results[0][0].transcript;
+        hideLoader();
         recognizedTextElement.textContent = `You said: ${userInput}`;
 
         // sending input to backend
