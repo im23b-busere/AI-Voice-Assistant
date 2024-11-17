@@ -1,8 +1,7 @@
 from groq import Groq
 import speech_recognition as sr
-import sphinx
 import pyttsx3
-from key import key
+from backend.key import key
 
 groq_client = Groq(
     api_key = key
@@ -15,19 +14,20 @@ def speak(audio):
     engine.runAndWait()
 
 def listen():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Say something!")
-        audio = r.listen(source)
+    while True:
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Speak!")
+            audio = r.listen(source)
 
-        #code snippet inspired from https://github.com/Uberi/speech_recognition/blob/master/examples/microphone_recognition.py
-        try:
-            print("You: " + r.recognize_sphinx(audio))
-            ask_AI(r.recognize_sphinx(audio))
-        except sr.UnknownValueError:
-            print("Could not understand audio")
-        except sr.RequestError as e:
-            print("Sphinx error; {0}".format(e))
+            #code snippet inspired from https://github.com/Uberi/speech_recognition/blob/master/examples/microphone_recognition.py
+            try:
+                print("You: " + r.recognize_sphinx(audio))
+                ask_AI(r.recognize_sphinx(audio))
+            except sr.UnknownValueError:
+                print("Could not understand audio")
+            except sr.RequestError as e:
+                print("Sphinx error; {0}".format(e))
 
 
 def ask_AI(input):
