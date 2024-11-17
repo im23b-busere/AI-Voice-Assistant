@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from backend.main import listen, ask_AI
+from backend.main import ask_AI
 from flask import request
 
 app = Flask(__name__)

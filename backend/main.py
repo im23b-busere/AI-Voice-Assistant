@@ -1,13 +1,14 @@
 from groq import Groq
-import speech_recognition as sr
 import pyttsx3
 from backend.key import key
+#import speech_recognition as sr
 
 groq_client = Groq(
     api_key=key
 )
 
-
+#not needed anymore. handled by frontend now
+""" 
 def speak(audio):
     engine = pyttsx3.init()
     engine.say(audio)
@@ -28,6 +29,8 @@ def listen():
             print("Could not understand audio")
         except sr.RequestError as e:
             print("Sphinx error; {0}".format(e))
+            
+"""
 
 
 def ask_AI(input):

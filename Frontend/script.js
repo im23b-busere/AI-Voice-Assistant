@@ -2,6 +2,18 @@ document.getElementById("voiceButton").addEventListener("click", () => {
     const recognizedTextElement = document.getElementById("recognizedText");
     const aiResponseElement = document.getElementById("aiResponse");
 
+
+    // https://dev.to/devsmitra/convert-text-to-speech-in-javascript-using-speech-synthesis-api-223g
+    function speak(dataResponse) {
+        const utterance = new SpeechSynthesisUtterance(dataResponse);
+
+        const voices = speechSynthesis.getVoices();
+        utterance.voice = voices[0];
+
+        speechSynthesis.speak(utterance);
+    }
+
+
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -30,6 +42,7 @@ document.getElementById("voiceButton").addEventListener("click", () => {
             const data = await response.json();
 
             aiResponseElement.textContent = `AI Response: ${data.response}`;
+            speak(data.response);
 
         } catch (err) {
             aiResponseElement.textContent = "Error connecting to the server.";
