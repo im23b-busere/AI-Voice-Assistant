@@ -43,8 +43,7 @@ def ask_AI(input):
         stop=None,
     )
     ai_response = completion.choices[0].message.content
-    print(f"AI Response: {ai_response}")
-    speak(ai_response)
+    return ai_response
 
 
 if __name__ == "__main__":
