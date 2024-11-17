@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: lightblue;
+    background: darksalmon;
     color: white;
     text-align: center;
 }
@@ -22,7 +22,8 @@
 h1 {
     margin-bottom: 20px;
     font-size: 50px;
-    text-shadow: gray 2px 2px
+    text-shadow: gray 2px 2px;
+
 }
 
 
@@ -121,4 +122,50 @@ h1 {
 
 .loaderRectangle div:nth-child(5) {
     animation-delay: 0.4s;
+}
+
+
+/*button from https://uiverse.io/andrew-demchenk0/yellow-otter-87 */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 8px;
+    height: 40px;
+    width: 114px;
+    border: none;
+    background: #1b1b1cde;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.lable {
+    line-height: 20px;
+    font-size: 17px;
+    color: #FF342B;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    background: #1b1b1c;
+}
+
+.button:hover .svg-icon {
+    animation: scale 1s linear infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(10deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
