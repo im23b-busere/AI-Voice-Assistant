@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Voice Assistant</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Assistant</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-    </ul>
-  </nav>
-</header>
+
+<!-- dropdown from: https://uiverse.io/Pradeepsaranbishnoi/slimy-warthog-37 -->
+<div class="mydict">
+    <div>
+        <label>
+            <input type="radio" name="radio" checked="">
+            <span>female</span>
+        </label>
+        <label>
+            <input type="radio" name="radio">
+            <span>male</span>
+        </label>
+    </div>
+</div>
+
 <div class="container">
-  <h1>AI Voice Assistant</h1>
-  <!--button from https://uiverse.io/andrew-demchenk0/yellow-otter-87 -->
-  <button id="voiceButton" class="button">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon">
-      <g stroke-width="2" stroke-linecap="round" stroke="#ff342b">
-        <rect y="3" x="9" width="6" rx="3" height="11"></rect>
-        <path d="m12 18v3"></path>
-        <path d="m8 21h8"></path>
-        <path d="m19 11c0 3.866-3.134 7-7 7-3.86599 0-7-3.134-7-7"></path>
-      </g>
-    </svg>
-    <span class="lable">Ask AI</span>
-  </button>
-  <div id="output">
-    <p id="recognizedText" class="recognized-text"></p>
-    <p id="aiResponse" class="ai-response"></p>
-  </div>
+    <h1>AI Voice Assistant</h1>
+    <!--button from https://uiverse.io/andrew-demchenk0/yellow-otter-87 -->
+    <button id="voiceButton" class="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon">
+            <g stroke-width="2" stroke-linecap="round" stroke="#ff342b">
+                <rect y="3" x="9" width="6" rx="3" height="11"></rect>
+                <path d="m12 18v3"></path>
+                <path d="m8 21h8"></path>
+                <path d="m19 11c0 3.866-3.134 7-7 7-3.86599 0-7-3.134-7-7"></path>
+            </g>
+        </svg>
+        <span class="lable">Ask AI</span>
+    </button>
+    <div id="output">
+        <p id="recognizedText" class="recognized-text"></p>
+        <p id="aiResponse" class="ai-response"></p>
+    </div>
 </div>
 <script src="script.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/typeit@8.0.7/dist/index.umd.min.js"></script>

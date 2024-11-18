@@ -171,3 +171,68 @@ h1 {
         transform: scale(1);
     }
 }
+
+/* menu from: https://uiverse.io/Pradeepsaranbishnoi/slimy-warthog-37 */
+.mydict {
+    position: fixed;
+    top: 1rem; /* Space from the top */
+    right: 1rem; /* Space from the right */
+    background-color: darksalmon;
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* Rounded corners */
+    z-index: 1000;
+}
+
+.mydict div {
+    display: flex;
+    flex-wrap: nowrap; /* Items will be in a single row */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mydict input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+    box-shadow: 0 0 0 0.0625em black;
+    background-color: black;
+    z-index: 1;
+    color: red;
+}
+
+label span {
+    display: block;
+    cursor: pointer;
+    background-color: white;
+    padding: 0.375em 0.75em;
+    position: relative;
+    margin-left: 0.0625em;
+    box-shadow: 0 0 0 0.0625em black;
+    letter-spacing: 0.05em;
+    color: #3e4963;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+label:first-child span {
+    border-radius: 0.375em 0 0 0.375em; /* Rounded corners */
+}
+
+label:last-child span {
+    border-radius: 0 0.375em 0.375em 0; /* Rounded corners */
+}
+
+label span:hover {
+    background-color: white;
+}
+
+label span:active {
+    box-shadow: 0 0 0 0.0625em black;
+}

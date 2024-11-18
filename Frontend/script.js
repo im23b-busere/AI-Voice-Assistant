@@ -29,7 +29,7 @@ document.getElementById("voiceButton").addEventListener("click", () => {
             const voices = speechSynthesis.getVoices();
 
             if (voices.length > 0) {
-                 const englishVoice = voices.find(voice => voice.lang.startsWith("en"));
+                const englishVoice = voices.find(voice => voice.lang.startsWith("en"));
                 utterance.voice = englishVoice;
                 console.log(utterance.voice)
                 speechSynthesis.speak(utterance);
