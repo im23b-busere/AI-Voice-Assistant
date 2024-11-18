@@ -22,11 +22,23 @@ document.getElementById("voiceButton").addEventListener("click", () => {
     // https://dev.to/devsmitra/convert-text-to-speech-in-javascript-using-speech-synthesis-api-223g
     function speak(dataResponse) {
         const utterance = new SpeechSynthesisUtterance(dataResponse);
+        getVoices();
 
-        const voices = speechSynthesis.getVoices();
-        utterance.voice = voices[0];
 
-        speechSynthesis.speak(utterance);
+        function getVoices(){
+            const voices = speechSynthesis.getVoices();
+
+            if (voices.length > 0) {
+                 const englishVoice = voices.find(voice => voice.lang.startsWith("en"));
+                utterance.voice = englishVoice;
+                console.log(utterance.voice)
+                speechSynthesis.speak(utterance);
+            } else {
+                setTimeout(getVoices,100)
+            }
+        }
+
+
     }
 
 
@@ -52,8 +64,8 @@ document.getElementById("voiceButton").addEventListener("click", () => {
         try {
             const response = await fetch("http://127.0.0.1:5000/voice", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ input: userInput }),
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({input: userInput}),
             });
 
             const data = await response.json();

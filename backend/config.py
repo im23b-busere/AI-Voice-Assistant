@@ -5,8 +5,9 @@ from flask import request
 
 app = Flask(__name__)
 
-#prevent CORS policy errors
+# prevent CORS policy errors
 CORS(app)
+
 
 # Route to handle AI responses
 @app.route("/voice", methods=["POST"])
