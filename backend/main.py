@@ -1,10 +1,13 @@
 from groq import Groq
 import pyttsx3
-from backend.key import key
+from dotenv import load_dotenv
+import os
 #import speech_recognition as sr
+load_dotenv()
+api_key = os.getenv('API_KEY')
 
 groq_client = Groq(
-    api_key=key
+    api_key=api_key
 )
 
 #not needed anymore. handled by frontend now
