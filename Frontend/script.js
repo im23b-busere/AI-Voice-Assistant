@@ -1,4 +1,5 @@
 document.getElementById("voiceButton").addEventListener("click", () => {
+    speechSynthesis.cancel()
     const recognizedTextElement = document.getElementById("recognizedText");
     const aiResponseElement = document.getElementById("aiResponse");
 
@@ -25,22 +26,33 @@ document.getElementById("voiceButton").addEventListener("click", () => {
         getVoices();
 
 
-        function getVoices(){
+        function getVoices() {
             const voices = speechSynthesis.getVoices();
 
+            // Check if voices are loaded
             if (voices.length > 0) {
-                const englishVoice = voices.find(voice => voice.lang.startsWith("en"));
-                utterance.voice = englishVoice;
-                console.log(utterance.voice)
-                speechSynthesis.speak(utterance);
+                const isFemale = document.getElementById('female').checked;
+                let selectedVoice;
+
+                // Find a voice that matches the selected gender
+                if (isFemale) {
+                    selectedVoice = voices.find(voice => voice.lang.startsWith("en") && voice.name.includes('Susan'));
+                    console.log(selectedVoice);
+                } else {
+                    selectedVoice = voices.find(voice => voice.lang.startsWith("en") && voice.name.includes('George'));
+                }
+                console.log(selectedVoice);
+
+                if (selectedVoice) {
+                    utterance.voice = selectedVoice;
+                    console.log(`Selected voice: ${selectedVoice.name}`);
+                    speechSynthesis.speak(utterance);
+                }
             } else {
-                setTimeout(getVoices,100)
+                setTimeout(getVoices, 100);
             }
         }
-
-
     }
-
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;

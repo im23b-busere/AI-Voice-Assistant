@@ -13,7 +13,9 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: darksalmon;
+    background: url(./pictures/bg.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
 }
@@ -27,35 +29,14 @@ h1 {
 }
 
 
-.voice-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: gray 2px 2px;
-    transition: all 0.3s ease;
-}
-
-.voice-button:hover {
-    background-color: lightcoral;
-    box-shadow: gray 2px 2px;
-}
-
-.voice-button:active {
-    transform: scale(0.85);
-}
-
-
 #output {
     margin-top: 30px;
     width: 80%;
     max-width: 600px;
-    background: white;
+    background: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 15px;
-    box-shadow: gray 2px 2px;
+    box-shadow: black 0px 0px 20px;
     padding: 20px;
     max-height: 400px;
     overflow-y: auto;
@@ -63,15 +44,15 @@ h1 {
 
 .recognized-text {
     font-size: 20px;
-    border-bottom: 1px solid black;
-    color: gray;
+    border-bottom: 1px solid white;
+    color: lightgray;
     margin-bottom: 10px;
     height: 50px;
 }
 
 .ai-response {
     font-size: 30px;
-    color: black;
+    color: whitw;
     flex-grow: 1
 }
 
@@ -87,7 +68,7 @@ h1 {
 .loaderRectangle div {
     width: 10px;
     height: 16px;
-    background: black;
+    background: white;
     animation: rectangleAnim 0.5s ease-in-out infinite;
     box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
 }
@@ -177,7 +158,6 @@ h1 {
     position: fixed;
     top: 1rem; /* Space from the top */
     right: 1rem; /* Space from the right */
-    background-color: darksalmon;
     padding: 0.5rem 1rem;
     border-radius: 8px; /* Rounded corners */
     z-index: 1000;
@@ -202,7 +182,7 @@ h1 {
 
 .mydict input[type="radio"]:checked + span {
     box-shadow: 0 0 0 0.0625em black;
-    background-color: black;
+    background-color:  #1b1b1cde;;
     z-index: 1;
     color: red;
 }
@@ -210,7 +190,7 @@ h1 {
 label span {
     display: block;
     cursor: pointer;
-    background-color: white;
+    background-color: lightgray;
     padding: 0.375em 0.75em;
     position: relative;
     margin-left: 0.0625em;
