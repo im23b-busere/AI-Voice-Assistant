@@ -52,12 +52,11 @@ h1 {
 
 .ai-response {
     font-size: 30px;
-    color: whitw;
     flex-grow: 1
 }
 
 
-/* loader from: https://uiverse.io/abrahamcalsin/breezy-panther-14 */
+/* loader inspired from: https://uiverse.io/abrahamcalsin/breezy-panther-14 */
 .loaderRectangle {
     display: flex;
     justify-content: center;
@@ -108,7 +107,7 @@ h1 {
 }
 
 
-/*button from https://uiverse.io/andrew-demchenk0/yellow-otter-87 */
+/*button inspired from: https://uiverse.io/andrew-demchenk0/yellow-otter-87 */
 .button {
     display: flex;
     justify-content: center;
@@ -153,19 +152,19 @@ h1 {
     }
 }
 
-/* menu from: https://uiverse.io/Pradeepsaranbishnoi/slimy-warthog-37 */
+/* menu inspired from: https://uiverse.io/Pradeepsaranbishnoi/slimy-warthog-37 */
 .mydict {
     position: fixed;
-    top: 1rem; /* Space from the top */
-    right: 1rem; /* Space from the right */
+    top: 1rem;
+    right: 1rem;
     padding: 0.5rem 1rem;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
     z-index: 1000;
 }
 
 .mydict div {
     display: flex;
-    flex-wrap: nowrap; /* Items will be in a single row */
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -202,11 +201,11 @@ label span {
 }
 
 label:first-child span {
-    border-radius: 0.375em 0 0 0.375em; /* Rounded corners */
+    border-radius: 0.375em 0 0 0.375em;
 }
 
 label:last-child span {
-    border-radius: 0 0.375em 0.375em 0; /* Rounded corners */
+    border-radius: 0 0.375em 0.375em 0;
 }
 
 label span:hover {
@@ -215,4 +214,46 @@ label span:hover {
 
 label span:active {
     box-shadow: 0 0 0 0.0625em black;
+}
+
+/* socials inspired from: https://uiverse.io/kamehame-ha/kind-otter-31 */
+.github-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.github-button .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+}
+
+.github-button svg path {
+    transition: 400ms;
+}
+
+.github-button:hover {
+    background-color: transparent;
+}
+
+.github-button:hover .text {
+    color: #181717;
+}
+
+.github-button:hover svg path {
+    fill: #181717;
 }

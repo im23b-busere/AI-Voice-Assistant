@@ -1,3 +1,4 @@
+document.getElementById("github-button").addEventListener("click", () => {  window.open('https://github.com/im23b-busere', '_blank');})
 document.getElementById("voiceButton").addEventListener("click", () => {
     speechSynthesis.cancel()
     const recognizedTextElement = document.getElementById("recognizedText");
@@ -34,12 +35,14 @@ document.getElementById("voiceButton").addEventListener("click", () => {
                 const isFemale = document.getElementById('female').checked;
                 let selectedVoice;
 
+
                 // Find a voice that matches the selected gender
                 if (isFemale) {
-                    selectedVoice = voices.find(voice => voice.lang.startsWith("en") && voice.name.includes('Susan'));
-                    console.log(selectedVoice);
+                    selectedVoice = voices.find(voice => voice.name.includes('Susan') || voice.name.includes('Google UK English Female'));
+                    console.log('selected voice:', selectedVoice);
                 } else {
-                    selectedVoice = voices.find(voice => voice.lang.startsWith("en") && voice.name.includes('George'));
+                    selectedVoice = voices.find(voice => voice.name.includes('George') || voice.name.includes('Google UK English Male'));
+                    console.log('selected voice:', selectedVoice);
                 }
                 console.log(selectedVoice);
 
