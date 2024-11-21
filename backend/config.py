@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from backend.main import ask_AI
+from backend.main import ask_ai
 from flask import request
 
 app = Flask(__name__)
@@ -14,9 +14,16 @@ CORS(app)
 def voice_input():
     try:
         data = request.get_json()
-        user_input = data.get("input", None)
+        if not data:
+            return jsonify({"error": "Invalid or missing JSON payload"}), 400
 
-        ai_response = ask_AI(user_input)
+        user_input = data.get("input", None)
+        if not user_input:
+            return jsonify({"error": "Input is required"}), 400
+
+        ai_response = ask_ai(user_input)
+        if not ai_response:
+            return jsonify({"error": "AI could not generate a response"}), 500
         return jsonify({"response": ai_response})
 
     except Exception as err:

@@ -36,7 +36,7 @@ def listen():
 """
 
 
-def ask_AI(input):
+def ask_ai(input):
     completion = groq_client.chat.completions.create(
         model="llama3-8b-8192",
         messages=[
