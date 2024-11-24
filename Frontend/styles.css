@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,24 +5,32 @@
     font-family: "Arial", sans-serif;
 }
 
+body {
+    background: url(./pictures/bg.webp) no-repeat fixed center;
+    background-size: cover;
+}
+
 #header, .container{
-    background: url(./pictures/bg.webp) no-repeat;
+    background: url(./pictures/bg.webp) no-repeat fixed;
+    background-size: cover;
 }
 
 #register {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     height: 100%;
     width: 100%;
+}
+
+#regForm, #loginForm{
+    backdrop-filter: blur(20px);
 }
 
 #loginD {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     height: 100%;
     width: 100%;
 }
@@ -50,7 +57,7 @@ h1 {
 }
 
 
-#output {
+#output{
     margin-top: 30px;
     width: 80%;
     max-width: 600px;
@@ -482,6 +489,7 @@ label span:active {
 
 
 /* login form inspired from: https://uiverse.io/bociKond/dull-mole-77 */
+
 .center-container {
     display: flex;
     justify-content: center;
@@ -590,9 +598,3 @@ input[type="text"]:focus{
     background-color: #58bc82;
     color: #707070;
 }
-
-
-
-
-
-

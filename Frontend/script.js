@@ -125,44 +125,37 @@ document.getElementById("voiceButton").addEventListener("click", () => {
 });
 
 // registration
+document.getElementById("regForm").addEventListener("submit", async (event) => {
+    event.preventDefault()
 
-const registrationForm = document.getElementById("regForm")
-//debugging
-if (!registrationForm) {
-    console.error("The registration form was not found");
-} else {
-    registrationForm.addEventListener("submit", async (event) => {
-        event.preventDefault()
+    const nameInput = document.getElementById("name").value
+    const emailInput = document.getElementById("email").value
+    const passwordInput = document.getElementById("password").value
 
-        const nameInput = document.getElementById("name").value
-        const emailInput = document.getElementById("email").value
-        const passwordInput = document.getElementById("password").value
+    try {
+        const response = await fetch("http://localhost:5000/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: nameInput,
+                email: emailInput,
+                password: passwordInput
+            }),
+        });
 
-        try {
-            const response = await fetch("http://localhost:5000/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: nameInput,
-                    email: emailInput,
-                    password: passwordInput
-                }),
-            });
+        const data = await response.json();
 
-            const data = await response.json();
-
-            if (response.ok) {
-                alert(data.message)
-                goBack();
-            } else {
-                alert("Fehler: " + data.error);
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Es gab ein Problem mit der Verbindung zum Server.");
+        if (response.ok) {
+            alert(data.message)
+            goBack();
+        } else {
+            alert("Fehler: " + data.error);
         }
-    })
-}
+    } catch (error) {
+        console.error(error);
+        alert("Es gab ein Problem mit der Verbindung zum Server.");
+    }
+})
 
