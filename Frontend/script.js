@@ -1,3 +1,10 @@
+document.getElementById("login").addEventListener("click", () => {window.location.href = "login.html"})
+document.getElementById("signup").addEventListener("click", () => {window.location.href = "registration.html"})
+
+function goBack() {
+    window.location.href = "index.html";
+}
+
 document.getElementById("github-button").addEventListener("click", () => {  window.open('https://github.com/im23b-busere', '_blank');})
 document.getElementById("voiceButton").addEventListener("click", () => {
     speechSynthesis.cancel()

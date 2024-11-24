@@ -6,11 +6,18 @@
     font-family: "Arial", sans-serif;
 }
 
-header {
+#header, .container{
     background: url(./pictures/bg.webp) no-repeat;
 }
 
-
+#register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
 
 
 .container {
@@ -19,7 +26,6 @@ header {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url(./pictures/bg.webp) no-repeat;
     background-size: cover;
     background-position: center;
     color: white;
@@ -466,7 +472,118 @@ label span:active {
 
 
 
-/* login form inspired from: https://uiverse.io/andrew-demchenk0/afraid-cougar-9 */
+/* login form inspired from: https://uiverse.io/bociKond/dull-mole-77 */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Form styles */
+.form {
+    --bg-light: #efefef;
+    --bg-dark: #707070;
+    --clr: #58bc82;
+    --clr-alpha: #9c9c9c60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form .input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form input[type="email"],
+.form input[type="password"],
+input[type="text"]{
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid var(--bg-dark);
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus,
+input[type="text"]:focus{
+    outline: 2px solid var(--clr);
+}
+
+.label {
+    align-self: flex-start;
+    color: var(--clr);
+    font-weight: 600;
+}
+
+.form .submit {
+    padding: 1rem 0.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form .submit:hover {
+    background-color: var(--clr);
+    color: var(--bg-dark);
+}
+
+.span {
+    text-decoration: none;
+    color: var(--bg-dark);
+}
+
+.span a {
+    color: var(--clr);
+}
+
+/* back button */
+.back-button {
+    padding: 1rem 1rem;
+    width: 100%;
+    max-width: 150px;
+    border-radius: 3rem;
+    background-color: #707070;
+    color: #efefef;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: all 300ms;
+}
+
+.back-button:hover {
+    background-color: #58bc82;
+    color: #707070;
+}
+
+
+
 
 
 
