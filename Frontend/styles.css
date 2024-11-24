@@ -19,6 +19,15 @@
     width: 100%;
 }
 
+#loginD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+
 
 .container {
     display: flex;
