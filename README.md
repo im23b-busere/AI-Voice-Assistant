@@ -38,10 +38,15 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
    ```bash
    pip install -r requirements.txt
    ```
-3. Eine **.env**-Datei mit deinem API-Schlüssel:
+3. Eine **.env**-Datei mit deinem API-Schlüssel, deinem Datenbank-Passwort und deinem Decodierungs-Schlüssel:
    ```
    API_KEY=dein_groq_api_schlüssel
+
+   DB_PW='dein_datebank_passowrt'
+   
+   SECRET_KEY='dein_erstellter_Schlüssel'
    ```
+   
 
 ### Frontend
 1. Browser mit Unterstützung für Web Speech API.
