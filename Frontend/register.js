@@ -2,10 +2,13 @@
 document.getElementById("regForm").addEventListener("submit", async (event) => {
     event.preventDefault()
 
+    // get inputs
     const nameInput = document.getElementById("name").value
     const emailInput = document.getElementById("email").value
     const passwordInput = document.getElementById("password").value
 
+
+    // sending input to backend
     try {
         const response = await fetch("http://localhost:5000/register", {
             method: "POST",

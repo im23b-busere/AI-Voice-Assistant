@@ -6,7 +6,7 @@ import os
 import mysql.connector
 
 load_dotenv()
-api_key = os.getenv('DB_PW')
+PW = os.getenv('DB_PW')
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ app = Flask(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'DB_PW',
+    'password': PW,
     'database': 'AI_Voice_Assistant'
 }
 
