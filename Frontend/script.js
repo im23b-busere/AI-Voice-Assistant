@@ -1,15 +1,3 @@
-document.getElementById("login").addEventListener("click", () => {
-    window.location.href = "login.html"
-})
-document.getElementById("signup").addEventListener("click", () => {
-    window.location.href = "registration.html"
-})
-
-function goBack() {
-    window.location.href = "index.html";
-}
-
-
 // Github clicked
 document.getElementById("github-button").addEventListener("click", () => {
     window.open('https://github.com/im23b-busere', '_blank');
@@ -124,38 +112,17 @@ document.getElementById("voiceButton").addEventListener("click", () => {
     };
 });
 
-// registration
-document.getElementById("regForm").addEventListener("submit", async (event) => {
-    event.preventDefault()
-
-    const nameInput = document.getElementById("name").value
-    const emailInput = document.getElementById("email").value
-    const passwordInput = document.getElementById("password").value
-
-    try {
-        const response = await fetch("http://localhost:5000/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: nameInput,
-                email: emailInput,
-                password: passwordInput
-            }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert(data.message)
-            goBack();
-        } else {
-            alert("Fehler: " + data.error);
-        }
-    } catch (error) {
-        console.error(error);
-        alert("Es gab ein Problem mit der Verbindung zum Server.");
-    }
+//login
+document.getElementById("login").addEventListener("click", () => {
+    window.location.href = "login.html"
 })
+
+//register
+document.getElementById("signup").addEventListener("click", () => {
+    window.location.href = "registration.html"
+})
+
+function goBack() {
+    window.location.href = "index.html";
+}
 
