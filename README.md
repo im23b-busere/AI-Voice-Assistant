@@ -23,7 +23,8 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 - **KI-Antworten**: Intelligente Antworten werden von der KI generiert und zurückgegeben.  
 - **Text-to-Speech**: KI-Antworten werden in Echtzeit vorgelesen.  
 - **Geschlechterauswahl**: Wähle zwischen einer weiblichen oder männlichen Stimme.  
-- **Benutzerfreundliches Frontend**: Intuitives Design mit Animationen und Ladeanzeige.  
+- **Benutzerfreundliches Frontend**: Intuitives Design mit Animationen und Ladeanzeige.
+- **Benutzer-Authentifizierung:** Benutzer können (und müssen) sich registrieren und einloggen, um den Sprachassistenten zu nutzen.
 
 
 
