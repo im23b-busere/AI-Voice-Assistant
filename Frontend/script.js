@@ -122,7 +122,3 @@ document.getElementById("signup").addEventListener("click", () => {
     window.location.href = "registration.html"
 })
 
-function goBack() {
-    window.location.href = "index.html";
-}
-

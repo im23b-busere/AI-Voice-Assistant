@@ -36,6 +36,9 @@ document.getElementById("regForm").addEventListener("submit", async (event) => {
     }
 })
 
+//back button
+document.getElementById("back-button").addEventListener("click", goBack);
+
 function goBack() {
     window.location.href = "index.html";
 }
