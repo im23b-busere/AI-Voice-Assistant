@@ -1,3 +1,43 @@
+if (sessionStorage.getItem("authToken")!=null) {
+    const loginButton = document.getElementById("login");
+    const signupButton = document.getElementById("signup");
+    const logoutButton = document.createElement("button");
+
+// Replace "Log In" and "Sign Up" with "Log Out"
+    loginButton.style.display = "none";
+    signupButton.style.display = "none";
+
+    const nav = document.querySelector(".popup-window ul"); // Your navigation container
+    const logoutListItem = document.createElement("li");
+    logoutListItem.appendChild(logoutButton);
+    nav.appendChild(logoutListItem);
+
+    logoutButton.id = "logout";
+    logoutButton.innerHTML = `
+            <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M19 4v6.406l-3.753 3.741-6.463-6.462 3.7-3.685h6.516zm2-2h-12.388l1.497 1.5-4.171 4.167 9.291 9.291 4.161-4.193 1.61 1.623v-12.388zm-5 4c.552 0 1 .449 1 1s-.448 1-1 1-1-.449-1-1 .448-1 1-1zm0-1c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm6.708.292l-.708.708v3.097l2-2.065-1.292-1.74zm-12.675 9.294l-1.414 1.414h-2.619v2h-2v2h-2v-2.17l5.636-5.626-1.417-1.407-6.219 6.203v5h6v-2h2v-2h2l1.729-1.729-1.696-1.685z"
+                ></path>
+            </svg>
+            <span>Log Out</span>
+        `;
+    // log out action
+    logoutButton.addEventListener("click", () => {
+        sessionStorage.removeItem("authToken");
+        window.location.reload();
+    });
+}
+
+
 // Github clicked
 document.getElementById("github-button").addEventListener("click", () => {
     window.open('https://github.com/im23b-busere', '_blank');
@@ -96,9 +136,7 @@ document.getElementById("voiceButton").addEventListener("click", () => {
 
                 // animate response using TypeIt library
                 new TypeIt("#animatedResponse", {
-                    strings: [data.response],
-                    speed: 70,
-                    waitUntilVisible: true,
+                    strings: [data.response], speed: 70, waitUntilVisible: true,
                 }).go();
                 speak(data.response);
 
