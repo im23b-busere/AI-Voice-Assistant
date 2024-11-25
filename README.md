@@ -12,6 +12,7 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 - [Anforderungen](#anforderungen)
 - [Installation](#installation)
 - [Technologien](#technologien)
+- [CORS-Policy](#cors-policy)
 - [Autor](#autor)
 
 
@@ -69,6 +70,15 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 - **Backend**: Python, Flask, Groq API
 - **Frontend**: HTML, CSS, JavaScript, Web Speech API
 - **Zusätzliche Bibliotheken**: Flask-CORS, dotenv, pyttsx3, TypeIt.js
+
+
+## CORS-Policy
+Falls du auf Probleme mit der CORS-Policy stösst (z. B. eine Fehlermeldung im Browser wie Blocked by CORS policy), kannst du diese durch die Verwendung eines Plugins lösen.
+Wir empfehlen die "Access-Control-Allow-Origin"-Browsererweiterung, die auf https://webextension.org/listing/access-control.html verfügbar ist.
+
+- **Installiere das Plugin:** Lade das Plugin herunter und aktiviere es in deinem Browser.
+- **Freigabe aktivieren:** Stelle sicher, dass die CORS-Freigabe aktiv ist, wenn du die Anwendung ausführst.
+
 
 
 
