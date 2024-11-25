@@ -5,6 +5,7 @@ import os
 #import speech_recognition as sr
 load_dotenv()
 api_key = os.getenv('API_KEY')
+secret_key = os.getenv('SECRET_KEY')
 
 groq_client = Groq(
     api_key=api_key
