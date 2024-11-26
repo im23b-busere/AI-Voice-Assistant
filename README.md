@@ -3,7 +3,7 @@
 
 Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteht und mit text- und sprachbasierten Antworten reagiert. Dieses Projekt kombiniert ein Flask-Backend, eine AI-Integration mit **Groq**, und ein benutzerfreundliches HTML/CSS/JavaScript-Frontend.
 
-<img src="https://github.com/user-attachments/assets/b834b4b1-59d8-46ec-958a-a1f6f74c61d2" alt="AI-Voice-Assistant-Screenshot" width="700"/>
+<img src="https://github.com/user-attachments/assets/192c73f1-6271-47a5-8400-28bf89221385" alt="AI-Voice-Assistant-Screenshot" width="700"/>
 
 
 ## Inhaltsverzeichnis
