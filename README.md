@@ -1,7 +1,7 @@
 
 # KI Sprachassistent
 
-Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteht und mit text- und sprachbasierten Antworten reagiert. Dieses Projekt kombiniert ein Flask-Backend, eine AI-Integration mit **Groq**, und ein benutzerfreundliches HTML/CSS/JavaScript-Frontend.
+Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteht und mit text- und sprachbasierten Antworten reagiert. Dieses Projekt kombiniert ein Flask-Backend, eine AI-Integration mit **Groq**, Eine MySQL-Datenbank und ein benutzerfreundliches HTML/CSS/JavaScript-Frontend.
 
 <img src="https://github.com/user-attachments/assets/75afa8ec-08cf-404d-b20d-7719a4b0d79d" alt="AI-Voice-Assistant-Screenshot" width="700"/>
 
@@ -62,10 +62,16 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
    ```
    Der Server läuft standardmäßig auf `http://127.0.0.1:5000`.
 
-2. **Frontend öffnen**:
+2. **MySQL-Datenbank einrichten**:
+    Erstelle eine Datenbank und lade die benötigten Tabellen mithilfe der bereitgestellten SQL-Datei im `backend/database/` Ordner.
+      ```bash
+      mysql -u root -p < database_schema.sql
+      ```
+
+4. **Frontend öffnen**:
    Öffne die Datei `frontend/index.html` in deinem Browser.
 
-3. **Spracheingabe starten**:
+5. **Spracheingabe starten**:
    Klicke auf "Ask AI" und sprich in dein Mikrofon.
 
 
@@ -74,6 +80,7 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 
 - **Backend**: Python, Flask, Groq API
 - **Frontend**: HTML, CSS, JavaScript, Web Speech API
+- **Datenbank**: MySQL
 - **Zusätzliche Bibliotheken**: Flask-CORS, dotenv, pyttsx3, TypeIt.js
 
 
