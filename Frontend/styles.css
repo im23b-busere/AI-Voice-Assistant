@@ -209,7 +209,7 @@ h1 {
 
 .mydict input[type="radio"]:checked + span {
     box-shadow: 0 0 0 0.0625em black;
-    background-color:  #1b1b1cde;;
+    background-color:  #1b1b1cde;
     z-index: 1;
     color: white;
 }
@@ -292,7 +292,7 @@ label span:active {
     --burger-line-width: 1.125em;
     --burger-line-height: 0.125em;
     --burger-offset: 0.625em;
-    --burger-bg: #00bf63;
+    --burger-bg: #1b1b1cde;
     --burger-color: #333;
     --burger-line-border-radius: 0.1875em;
     --burger-diameter: 3.125em;
@@ -352,6 +352,8 @@ label span:active {
 }
 
 .burger {
+    top: 0.3rem;
+    left: 0.3rem;
     display: flex;
     position: relative;
     align-items: center;
