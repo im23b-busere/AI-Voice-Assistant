@@ -81,7 +81,7 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 - **Backend**: Python, Flask, Groq API
 - **Frontend**: HTML, CSS, JavaScript, Web Speech API
 - **Datenbank**: MySQL
-- **Zusätzliche Bibliotheken**: Flask-CORS, dotenv, pyttsx3, TypeIt.js
+- **Zusätzliche Bibliotheken**: Flask-CORS, dotenv, pyttsx3, TypeIt.js, os, mysql.connector, jwt, logging
 
 
 ## CORS-Policy
