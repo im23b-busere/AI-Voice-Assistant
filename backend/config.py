@@ -1,4 +1,4 @@
-from datetime import time, datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from backend.main import ask_ai, secret_key
@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 import mysql.connector
 import jwt
+import logging
 
 load_dotenv()
 PW = os.getenv('DB_PW')
@@ -45,7 +46,9 @@ def voice_input():
         return jsonify({"error": str(err)}), 500
 
 
-# Route for user registration
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+
 @app.route("/register", methods=["POST"])
 def register():
     data = request.get_json()
@@ -55,22 +58,32 @@ def register():
     email = data.get("email")
     password = data.get("password")
 
+    # Hash the password
+    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+
     # Connect to the database
-    connection = mysql.connector.connect(**db_config)
-    cursor = connection.cursor()
+    try:
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+    except mysql.connector.Error as err:
+        logging.error(f"Database connection error: {err}")
+        return jsonify({"error": "Database connection error"}), 500
 
     try:
-        cursor.execute("INSERT INTO users (name, email, password) VALUES (%s, %s, %s)", (name, email, password))
+        cursor.execute("INSERT INTO users (name, email, password) VALUES (%s, %s, %s)", (name, email, hashed_password))
         connection.commit()
         return jsonify({"message": "User registered successfully"}), 201
 
     except mysql.connector.Error as err:
+        logging.error(f"Database error: {err}")
         connection.rollback()
         return jsonify({"error": str(err)}), 500
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        return jsonify({"error": str(e)}), 500
     finally:
         cursor.close()
         connection.close()
-
 
 # Route for user login
 @app.route('/login', methods=['POST'])
@@ -89,7 +102,7 @@ def login():
         cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
         user = cursor.fetchone()
 
-        if user and user["password"] == password:
+        if user and check_password_hash(user["password"], password):
             # Create the JWT token
             token = jwt.encode({
                 'sub': user['email']
