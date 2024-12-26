@@ -1,13 +1,13 @@
-if (sessionStorage.getItem("authToken")!=null) {
+if (document.cookie.includes("access_token_cookie")) {
     const loginButton = document.getElementById("login");
     const signupButton = document.getElementById("signup");
     const logoutButton = document.createElement("button");
 
-// Replace "Log In" and "Sign Up" with "Log Out"
+    // Replace "Log In" and "Sign Up" with "Log Out"
     loginButton.style.display = "none";
     signupButton.style.display = "none";
 
-    const nav = document.querySelector(".popup-window ul"); // Your navigation container
+    const nav = document.querySelector(".popup-window ul"); 
     const logoutListItem = document.createElement("li");
     logoutListItem.appendChild(logoutButton);
     nav.appendChild(logoutListItem);
@@ -30,10 +30,14 @@ if (sessionStorage.getItem("authToken")!=null) {
             </svg>
             <span>Log Out</span>
         `;
+
     // log out action
     logoutButton.addEventListener("click", () => {
-        sessionStorage.removeItem("authToken");
-        window.location.reload();
+        // Set the cookie with an expired date to delete it
+        document.cookie = "access_token_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        alert("Logout erfolgreich!");
+        window.location.reload(); // Seite neu laden, um UI zu aktualisieren
     });
 }
 
@@ -46,7 +50,7 @@ document.getElementById("github-button").addEventListener("click", () => {
 // Ask AI button clicked
 document.getElementById("voiceButton").addEventListener("click", () => {
     //check for token
-    if (sessionStorage.getItem("authToken")) {
+    if (document.cookie.includes("access_token_cookie")) {
         speechSynthesis.cancel()
         const recognizedTextElement = document.getElementById("recognizedText");
         const aiResponseElement = document.getElementById("aiResponse");

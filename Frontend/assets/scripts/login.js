@@ -18,12 +18,12 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
                 email: emailInput,
                 password: passwordInput
             }),
+            credentials: "include", // send cookies
         });
 
         const data = await response.json();
 
         if (response.ok) {
-            sessionStorage.setItem("authToken",data.token);
             alert(data.message);
             goBack()
 

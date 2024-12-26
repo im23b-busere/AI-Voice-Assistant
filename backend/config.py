@@ -95,8 +95,21 @@ def login():
                 'sub': user['email']
             }, secret_key, algorithm='HS256')
 
-            # Send the token to the frontend
-            return jsonify({"message": "Login successful!", "token": token}), 200
+            # Check if the cookie already exists
+            if request.cookies.get('access_token_cookie'):
+                response = jsonify({"message": "Login successful"})
+            else:
+                # Send the cookie to the frontend
+                response = jsonify({"message": "Login successful"})
+                response.set_cookie(
+                    "access_token_cookie",
+                    token,
+                    httponly=False, # should be True but runs locally so False
+                    secure=False,  # should be True but runs locally so False
+                    samesite="Lax"  # Strict doesn't want to work :/
+                )
+            return response, 200
+
         else:
             return jsonify({"error": "Invalid email or password"}), 401
 
@@ -105,6 +118,7 @@ def login():
     finally:
         cursor.close()
         connection.close()
+        
 
 
 

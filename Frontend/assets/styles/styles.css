@@ -6,12 +6,12 @@
 }
 
 body {
-    background: url(./pictures/bg.webp) no-repeat fixed center;
+    background: url(../../pictures/bg.webp) no-repeat fixed center;
     background-size: cover;
 }
 
 #header, .container{
-    background: url(./pictures/bg.webp) no-repeat fixed;
+    background: url(../../pictures/bg.webp) no-repeat fixed;
     background-size: cover;
 }
 
