@@ -2,13 +2,14 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     depends_on:
       - db
     environment:
       - GROQ_API_KEY=${API_KEY}
+    container_name: backend_container
 
   frontend:
     build:
@@ -18,6 +19,7 @@ services:
       - "80:80"
     depends_on:
       - backend
+    container_name: frontend_container
 
   db:
     image: mysql:8.0
@@ -29,6 +31,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=AI_Voice_Assistant
+    container_name: mysql_db_container
 
 volumes:
   db_data:
