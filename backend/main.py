@@ -2,16 +2,19 @@ from groq import Groq
 import pyttsx3
 from dotenv import load_dotenv
 import os
-#import speech_recognition as sr
+
+from openai import OpenAI
+
+# import speech_recognition as sr
 load_dotenv()
 api_key = os.getenv('API_KEY')
 secret_key = os.getenv('SECRET_KEY')
 
-groq_client = Groq(
+client = OpenAI(
     api_key=api_key
 )
 
-#not needed anymore. handled by frontend now
+# not needed anymore. handled by frontend now
 """ 
 def speak(audio):
     engine = pyttsx3.init()
@@ -38,16 +41,15 @@ def listen():
 
 
 def ask_ai(input):
-    completion = groq_client.chat.completions.create(
-        model="llama3-8b-8192",
+    completion = client.chat.completions.create(
+        model="gpt-4o",
         messages=[
-            {"role": "user", "content": input}
-        ],
-        temperature=1,
-        max_tokens=1024,
-        top_p=1,
-        stream=False,
-        stop=None,
+            {"role": "system", "content": "You are a helpful assistant."},
+            {
+                "role": "user",
+                "content": input
+            }
+        ]
     )
     ai_response = completion.choices[0].message.content
     return ai_response

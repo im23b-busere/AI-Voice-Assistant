@@ -37,7 +37,7 @@ def voice_input():
         if not user_input:
             return jsonify({"error": "Input is required"}), 400
 
-        ai_response = ask_ai(user_input)
+        ai_response = ask_ai(user_input) 
         if not ai_response:
             return jsonify({"error": "AI could not generate a response"}), 500
         return jsonify({"response": ai_response})
@@ -132,9 +132,6 @@ def login():
         cursor.close()
         connection.close()
         
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
