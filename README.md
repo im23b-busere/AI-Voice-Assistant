@@ -1,7 +1,7 @@
 
 # KI Sprachassistent
 
-Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteht und mit text- und sprachbasierten Antworten reagiert. Dieses Projekt kombiniert ein Flask-Backend, eine AI-Integration mit **Groq**, Eine MySQL-Datenbank und ein benutzerfreundliches HTML/CSS/JavaScript-Frontend.
+Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteht und mit text- und sprachbasierten Antworten reagiert. Dieses Projekt kombiniert ein Flask-Backend, eine AI-Integration mit **OpenAI GPT-4o**, Eine MySQL-Datenbank und ein benutzerfreundliches HTML/CSS/JavaScript-Frontend.
 
 <img src="https://github.com/user-attachments/assets/75afa8ec-08cf-404d-b20d-7719a4b0d79d" alt="AI-Voice-Assistant-Screenshot" width="700"/>
 
@@ -39,7 +39,7 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
    ```
 3. Eine **.env**-Datei mit deinem API-Schlüssel, deinem Datenbank-Passwort und deinem Decodierungs-Schlüssel:
    ```
-   API_KEY=dein_groq_api_schlüssel
+   API_KEY=dein_OpenAI_api_schlüssel
 
    DB_PW='dein_datebank_passowrt'
    
@@ -78,7 +78,7 @@ Ein interaktiver KI-gestützter Sprachassistent, der natürliche Sprache versteh
 
 ## Technologien
 
-- **Backend**: Python, Flask, Groq API
+- **Backend**: Python, Flask, OpenAI
 - **Frontend**: HTML, CSS, JavaScript, Web Speech API
 - **Datenbank**: MySQL
 - **Zusätzliche Bibliotheken**: Flask-CORS, dotenv, pyttsx3, TypeIt.js, os, mysql.connector, jwt, logging
